@@ -38,13 +38,10 @@ switch_dot();
 
 // Fonction pour mettre à jour l'image et le texte de la bannière
 function updateBanner() {
-    // Applique une classe "fade-out" pour démarrer la transition
-    bannerImage.classList.add("fade-out");
 
     // Attends la fin de l'animation avant de changer l'image
     setTimeout(() => {
         bannerImage.src = `./images/slides/${slides[index].image}`; // Met à jour l'image
-        bannerImage.classList.remove("fade-out"); // Réapplique l'opacité après le changement
 
         // Met à jour les dots
         const dots = document.querySelectorAll(".dot");
