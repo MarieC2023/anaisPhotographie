@@ -48,13 +48,15 @@ table {
 }
 /** end reset css**/
 
-/* Variables declaration*/
+/* Déclaration des variables*/
 :root{
-    --primary-color: black;
+    --primary-color: #333;
     --secondary-color: #f3eee0;
     --font-family-1 : "Manrope", sans-serif;
     --font-family-2 : "Lobster", cursive;
 }
+
+/* Déclaration générales*/
 
 body, a, p{
     font-family: var(--font-family-1);
@@ -72,7 +74,7 @@ body {
     margin: 0;
     padding: 0;
     
-  }
+}
 
 p{
     font-size: 1.5em;
@@ -100,123 +102,108 @@ h3,h4{
     font-size: 2em;
 }
 
-
 /*Header*/
-
-.container {
-	max-width: 1440px;
-	margin-inline:auto;
-	padding-inline: 5%;
-}
 header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
-.logo{
-	width: 260px;
-	margin-block: 10px;
-}
 
-
-#banner {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	min-height: 850px;
-	position: relative;
-}
-.banner-img {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	object-fit: cover;
-	object-position: center;
-}
-
-/* Gestion des points du carrousel */
-
-.dots {
-	position: absolute;
-	bottom: 40px;
-	display: flex;
-}
-.dot {
-	margin-inline: 5px;
-	width: 13px;
-	height: 13px;
-	background-color: #ffffff00;
-	border: 3px solid #fff;
-	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
-}
-.dot_selected {
-	background-color: #fff;
-}
-/* Fin du code CSS pour le carousel */
-#banner p {
-	font-family: var(--font-family-1);
-	font-weight: 900;
-	font-size: 50px;
-	line-height: 66px;
-	color: white;
-	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-	text-align: center;
-}
-#banner span {
-	display: block;
-	font-weight: 400;
-	font-size: 30px;
-}
-
-
-
-
-
-
-
-.banniere{
-    display: flex;
+.container {
+	max-width: 1440px;
+	margin-inline:auto;
+	padding-inline: 5%;
     flex-direction: column;
-    padding: 30px;
-    background-image: url("fleurs-arbre.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0.8;
-    margin: auto;
-    height: 1024px; 
-    color: var(--primary-color);
-
 }
 
-.nav, .footer-nav{
+.logo{
+    display: flex;
+    width: 150px;
+    height: 150px;
+    margin-block: 10px;
+}
+
+.titre{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 50px;
+}
+
+.menu {
+    display: flex;
+}
+
+.nav{
     display: flex;
     justify-content: center;
     gap: 50px;
     margin: 30px;
     font-weight: bold; 
 }
+
 .nav{
     flex-direction: row;
     font-size: 1.25em;
 }
 
-.banniere p{
+/* Conteneur principal */
+#banner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Image du carrousel */
+.banner-img {
+    width: 100%;
+    display: block;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Effet de transition */
+    opacity: 1;
+    transform: scale(1);
+}
+
+.banner-img.fade-out {
+    opacity: 0; /* Disparition progressive */
+    transform: scale(0.98); /* L'image se réduit légèrement */
+}
+
+/* Dots */
+.dots {
     display: flex;
     justify-content: center;
-    min-height: 43.25rem;
-    align-items: center;
+    gap: 8px;
+    margin: 15px;
 }
 
-/*Main*/
-.block-spacer{
-    height: 40px;
+.dot {
+    width: 13px;
+    height: 13px;
     background-color: var(--secondary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #333;
+	border-radius: 100%;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s;
 }
 
+.dot_selected {
+    background-color: #333; /* Couleur active */
+}
+
+/* main - section block-spacer*/
+.block-spacer{
+    height: 150px;
+    background-color: var(--secondary-color);
+    display: flex;
+}
+
+/* main - section bandeau d'image*/
 .bandeau-img{
     display: flex;
     flex-direction: row;
@@ -241,95 +228,184 @@ section img{
 }
 
 .footer-nav{
-    flex-direction: column;
-    width: 100%;
-    max-width: 450px;
-}
-
-.logo{
-    width: 150px;
-    height: 150px;
-}
-
-/* header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li{
-    margin: 0;
-    padding: 0;
-    float: left;
-    width: 200px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.8);
-    line-height: 40px;
-    text-align: center;
-}
-header nav ul li a{
-    display: block;
-}
-header nav ul li a:hover{
-    background-color: grey;
-    opacity: 0.5;
-}
-
-header nav ul li ul li{
-    display: none;
-}
-
-header nav ul li:hover ul li{
-    display:block;
-} */
-
-/*a {
-    color: black;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight : 700;
-  }
-
-  .logo{
-    border-radius: 10px;  
-    width: auto;
-    height: 40px;  
-  }
-
-  .logoX{
     display: flex;
-    width: auto;
-    height: 35px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 30px;
+    font-weight: bold; 
+    width: 100%;
+} 
 
-  }
- header,
- footer{
-  padding: 20px 50px 20px 50px;
- }
 
- section{
-  padding: 30px;
- }
 
- .conteneur{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
- }
+/****** Media queries ***********/
 
- fieldset {
-  border: none;
-  background-color: #C2B0F9;
-  border: 2px solid black;
-  border-radius: 6px;
-  margin-bottom: 20px;
+/* Medium devices (tablets, max-width: 1024px) */
+@media (max-width: 1024px) {
+    /****** General ***********/
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3, h4, p {
+        font-size: 1.25em;
+    }
+
+    /****** Header ***********/
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .titre {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav {
+        gap: 20px;
+        font-size: 1em;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    /****** Section Banner ***********/
+    #banner {
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .dots {
+        gap: 5px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    /****** Section Block Spacer ***********/
+    .block-spacer {
+        height: 100px;
+    }
+
+    /****** Section Bandeau img ***********/
+    .bandeau-img {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .bandeau-img img {
+        width: 30%;
+        margin: 5px;
+    }
+
+    /****** Footer ***********/
+    .footer {
+        flex-wrap: wrap;
+    }
+
+    .footer-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 100%;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer img.logo {
+        width: 100px;
+        height: 100px;
+    }
 }
 
-legend {
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 6px;
-  padding: 4px;
+/* Small devices (phones, max-width: 768px) */
+@media (max-width: 768px) {
+    /****** General ***********/
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3, h4, p {
+        font-size: 1em;
+    }
+
+    /****** Header ***********/
+    header {
+        padding: 10px;
+    }
+
+    .titre {
+        gap: 10px;
+    }
+
+    .nav {
+        gap: 10px;
+        font-size: 0.9em;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    /****** Section Banner ***********/
+    #banner {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .dots {
+        gap: 5px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    /****** Section Block Spacer ***********/
+    .block-spacer {
+        height: 75px;
+    }
+
+    /****** Section Bandeau img ***********/
+    .bandeau-img {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .bandeau-img img {
+        width: 45%;
+        margin: 3px;
+    }
+
+    /****** Footer ***********/
+    .footer {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .footer img.logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .footer-nav {
+        font-size: 0.9em;
+        flex-direction: column;
+    }
 }
